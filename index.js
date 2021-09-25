@@ -66,7 +66,7 @@ function viewAll() {
         case "view all tables":
           viewAllTables();
           break;
-          case "add Department":
+          case "add department":
             addDepartment();
             break;
         case "add role":
@@ -120,22 +120,13 @@ function addDepartment() {
   db.promise().query("INSERT INTO department_table SET ?", {
     name: res.departmentName,
   
-  }).then(([answer]) => {
-    console.table(answer);
-    // create a for loop on answer to filter out each department name 
-    // re loop back to viewAll
-    // reference query.sql
-    viewAll()
+  }).then(() => {
+    viewAllDepartments()
   });
-}
+  }
 // addDepartment()
   )}
-
-
-
-
-
-
+  
 
 
   
