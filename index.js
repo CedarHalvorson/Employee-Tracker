@@ -82,7 +82,7 @@ function viewAll() {
 
 function viewAllRoles() {
   db.promise().query("SELECT * FROM role_table;").then(([answer]) => {
-    console.table("\n", answer);
+    console.table(answer);
     // create a for loop on answer to filter out each department name 
     // re loop back to viewAll
     // reference query.sql
@@ -133,7 +133,7 @@ function addDepartment() {
 function addRole() {
   inquirer.prompt([
     {
-      name: "roleName",
+      name: "title",
       message: "What is the name of the role you'd like to add?",
       type: "input"
     },
@@ -145,7 +145,7 @@ function addRole() {
   ])
   .then(function(res) {
     db.promise().query("INSERT INTO role_table SET ?", {
-      title: res.roleName,
+      title: res.title,
       salary: res.salary,
 
     }).then(([answer]) => {
